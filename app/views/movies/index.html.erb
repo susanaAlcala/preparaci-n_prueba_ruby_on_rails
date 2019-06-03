@@ -1,0 +1,41 @@
+<h3 class= text-center >LISTA DE PELICULAS</h3>
+<br>
+
+<div class= 'row'> 
+    <div class= 'col-sm-6'>
+        <h4 class= text-center> FAVORITAS </h4>
+        <% @movies.each do |movie| %>
+            <% if movie.favorite %>
+                <div class= "card card-body bg-ligth"> 
+                    <p> Titulo: <%= movie.name %> </p>
+                    <p> Año de lanzamiento: <%= movie.year %> </p>
+                    <p> Opciones: 
+                    <%= link_to 'Mostrar', movie_path(movie)%>
+                    <%= link_to 'Editar', edit_movie_path(movie) %>
+                    <%= link_to 'Eliminar', movie, method: :delete %> </p>
+                </div>
+            <%end%>
+        <%end%>
+    </div>
+
+    <div class= 'col-sm-6'>
+        <h4 class= text-center> GENERALES </h4>
+        <% @movies.each do |movie| %>
+            <% if !movie.favorite %>
+                <div class= "card card-body bg-ligth"> 
+                <p> Titulo: <%= movie.name %> </p>
+                <p> Año de lanzamiento: <%= movie.year %> </p>
+                <p> Opciones:
+                    <%= link_to 'Mostrar', movie_path(movie)%>
+                    <%= link_to 'Editar', edit_movie_path(movie) %>
+                    <%= link_to 'Eliminar', movie_path(movie)%> </p>
+                </div>
+            <%end%>
+        <%end%>
+    </div>
+    
+</div>
+
+<%= link_to 'Nueva pelicula', movies_new_path%>
+
+

@@ -1,0 +1,21 @@
+<%= form_with(model: @movie, local: true) do |f| %>
+    <h1>Ingrese una pelicula</h1>
+    <br>
+    <div class= 'form-group'>
+        <%= f.label 'Nombre de la película' %>
+        <%= f.text_field :name %>
+    </div>
+    
+    <div class= 'form-group'>
+        <%= f.label "Año de lanzamiento" %>
+        <%= f.text_field :year%>
+    </div>
+
+    <div class= 'form-group'>
+        <%= f.check_box :favorite %> <%= f.label :favorite, 'Agregar a favorita'%>  
+    </div>
+    <div class= 'form-group'>
+        <%= f.submit 'Crear' %>
+    </div>
+
+<% end %>
